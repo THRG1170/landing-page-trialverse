@@ -36,11 +36,9 @@ export default function Navbar() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <Button asChild>
-              <Link href="https://trialverse-social.vercel.app/">
-                Get Started
-              </Link>
-            </Button>
+            <Link href="https://trialverse-social.vercel.app/">
+              <Button asChild>Get Started</Button>
+            </Link>
             <ModeToggle />
           </div>
         </NavBody>
@@ -79,11 +77,9 @@ export default function Navbar() {
               </a>
             ))}
             <div className="flex w-full flex-col gap-4">
-              <Button asChild>
-                <Link href="https://trialverse-social.vercel.app/">
-                  Get Started
-                </Link>
-              </Button>
+              <Link href="https://trialverse-social.vercel.app/">
+                <Button asChild>Get Started</Button>
+              </Link>
             </div>
           </MobileNavMenu>
         </MobileNav>
