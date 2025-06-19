@@ -16,6 +16,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Trial Verse",
   description: "Landing page trial verse",
+  icons: {
+    icon: [
+      // { url: "/icon_biru.svg", type: "image/svg+xml" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({

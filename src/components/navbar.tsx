@@ -1,125 +1,93 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
-import { Menu, X } from "lucide-react";
+import {
+  Navbar as Resizeble,
+  NavbarLogo,
+  NavBody,
+  NavItems,
+  MobileNav,
+  MobileNavHeader,
+  MobileNavToggle,
+  MobileNavMenu,
+} from "./ui/resizeble-navbar";
+import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const navItems = [
+    { name: "Home", link: "/" },
+    { name: "Docs", link: "/docs" },
+    { name: "About", link: "/about" },
+    { name: "Contact", link: "/contact" },
+  ];
   const pathname = usePathname();
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Docs", href: "/docs" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
-  ];
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/80 backdrop-blur-md shadow-lg border-b border-border/50"
-          : "bg-background/95 backdrop-blur-sm"
-      }`}
-    >
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <div className="flex items-center">
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-primary">TrialVerse</span>
-          </Link>
-        </div>
-
+    <>
+      <Resizeble className="mt-3">
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                pathname === link.href ||
-                (link.href === "/docs" && pathname.startsWith("/docs"))
-                  ? "text-primary"
-                  : "text-muted-foreground"
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
-          <Button asChild>
-            <Link href="/">Get Started</Link>
-          </Button>
-          <ModeToggle />
-        </nav>
-
-        {/* Mobile Navigation Toggle */}
-        <div className="flex items-center md:hidden space-x-4">
-          <ModeToggle />
-          <Button
-            variant="ghost"
-            size="icon"
-            aria-label="Toggle Menu"
-            onClick={toggleMenu}
-          >
-            {isMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </Button>
-        </div>
-      </div>
-
-      {/* Mobile Navigation Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden border-t border-border/50">
-          <div className="container mx-auto px-4 py-4 space-y-4 bg-background/95 backdrop-blur-md">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`block text-sm font-medium transition-colors hover:text-primary ${
-                  pathname === link.href ||
-                  (link.href === "/docs" && pathname.startsWith("/docs"))
-                    ? "text-primary"
-                    : "text-muted-foreground"
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <Button asChild className="w-full">
-              <Link href="/" onClick={() => setIsMenuOpen(false)}>
+        <NavBody>
+          <NavbarLogo />
+          <NavItems items={navItems} />
+          <div className="flex items-center gap-4">
+            <Button asChild>
+              <Link href="https://trialverse-social.vercel.app/">
                 Get Started
               </Link>
             </Button>
+            <ModeToggle />
           </div>
-        </div>
-      )}
-    </header>
+        </NavBody>
+
+        {/* Mobile Navigation */}
+        <MobileNav>
+          <MobileNavHeader>
+            <NavbarLogo />
+            <div className="flex gap-6 items-center">
+              <ModeToggle />
+              <MobileNavToggle
+                isOpen={isMobileMenuOpen}
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              />
+            </div>
+          </MobileNavHeader>
+
+          <MobileNavMenu
+            isOpen={isMobileMenuOpen}
+            onClose={() => setIsMobileMenuOpen(false)}
+          >
+            {navItems.map((item, idx) => (
+              <a
+                key={`mobile-link-${idx}`}
+                href={item.link}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={cn(
+                  "relative",
+                  pathname === item.link ||
+                    (item.link === "/docs" && pathname.startsWith("/docs"))
+                    ? "text-primary"
+                    : "text-muted-foreground"
+                )}
+              >
+                <span className="block">{item.name}</span>
+              </a>
+            ))}
+            <div className="flex w-full flex-col gap-4">
+              <Button asChild>
+                <Link href="https://trialverse-social.vercel.app/">
+                  Get Started
+                </Link>
+              </Button>
+            </div>
+          </MobileNavMenu>
+        </MobileNav>
+      </Resizeble>
+    </>
   );
 }

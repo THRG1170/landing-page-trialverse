@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 import { BookOpen, Users, Award, Zap } from "lucide-react";
-
+import { cn } from "@/lib/utils";
 export default function Features() {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -112,18 +112,59 @@ export default function Features() {
           ref={featuresRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
         >
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="feature-card flex flex-col items-center text-center p-6 bg-background rounded-lg shadow-sm"
-            >
-              <div className="mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-              <p className="text-muted-foreground">{feature.description}</p>
-            </div>
-          ))}
+          <FocusCards cards={features} />
         </div>
       </div>
     </section>
   );
+}
+
+const Card = React.memo(
+  ({
+    card,
+    index,
+    hovered,
+    setHovered,
+  }: {
+    //eslint-disable-next-line
+    card: any;
+    index: number;
+    hovered: number | null;
+    setHovered: React.Dispatch<React.SetStateAction<number | null>>;
+  }) => (
+    <div
+      onMouseEnter={() => setHovered(index)}
+      onMouseLeave={() => setHovered(null)}
+      className={cn(
+        " relative dark:bg-neutral-900 overflow-hidden transition-all duration-300 ease-out feature-card flex flex-col items-center text-center p-6 bg-background rounded-lg shadow-sm",
+        hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
+      )}
+    >
+      <div className="mb-4">{card.icon}</div>
+      <h3 className="text-xl font-bold mb-2">{card.title}</h3>
+      <p className="text-muted-foreground">{card.description}</p>
+    </div>
+  )
+);
+
+Card.displayName = "Card";
+
+type Card = {
+  icon: ReactNode;
+  title: string;
+  description: string;
+};
+
+function FocusCards({ cards }: { cards: Card[] }) {
+  const [hovered, setHovered] = useState<number | null>(null);
+
+  return cards.map((card, index) => (
+    <Card
+      key={card.title}
+      card={card}
+      index={index}
+      hovered={hovered}
+      setHovered={setHovered}
+    />
+  ));
 }

@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-muted py-12">
       <div className="px-4 md:px-6">
-        <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left items-center">
+        <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
           <div className="space-y-4">
             <Link href="/" className="inline-block">
               <span className="text-2xl font-bold text-primary">
