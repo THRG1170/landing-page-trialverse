@@ -24,7 +24,7 @@ export default function ClientLayout({
   return (
     <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
       <body className={cn(className, inter.className)}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <div className="flex min-h-screen flex-col overflow-x-hidden">
             {/* Only show the main navbar if we're not on a docs page */}
             {!isDocsPage && <Navbar />}
