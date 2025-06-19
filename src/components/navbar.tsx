@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
 import {
@@ -16,6 +15,7 @@ import {
 } from "./ui/resizeble-navbar";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 export default function Navbar() {
   const navItems = [
@@ -36,9 +36,11 @@ export default function Navbar() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <Link href="https://trialverse-social.vercel.app/">
-              <Button asChild>Get Started</Button>
-            </Link>
+            <Button size="sm" className="font-medium z-10 text-sm px-4 py-3">
+              <Link href="https://trialverse-social.vercel.app/">
+                Get Started
+              </Link>
+            </Button>
             <ModeToggle />
           </div>
         </NavBody>
@@ -77,9 +79,11 @@ export default function Navbar() {
               </a>
             ))}
             <div className="flex w-full flex-col gap-4">
-              <Link href="https://trialverse-social.vercel.app/">
-                <Button asChild>Get Started</Button>
-              </Link>
+              <Button asChild className="font-medium text-sm px-4 py-3">
+                <Link href="https://trialverse-social.vercel.app/">
+                  Get Started
+                </Link>
+              </Button>
             </div>
           </MobileNavMenu>
         </MobileNav>
