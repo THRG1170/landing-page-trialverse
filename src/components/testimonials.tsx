@@ -216,7 +216,7 @@ export default function Testimonials() {
             ref={headingRef}
             className="text-3xl font-bold tracking-tighter md:text-4xl"
           >
-            What Our Customers Say
+            What Our Users Say
           </h2>
           <p
             ref={textRef}

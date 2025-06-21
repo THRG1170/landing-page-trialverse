@@ -63,9 +63,9 @@ export default function AboutPage() {
     <div className="overflow-x-hidden">
       {/* Combined About & Story Section */}
       <section className="py-16 md:py-24">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h1 className="text-4xl font-bold tracking-tight md:text-5xl mb-6">
+        <div className="container px-4 mx-auto md:px-6">
+          <div className="max-w-3xl mx-auto mb-12 text-center">
+            <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">
               About Trial Verse
             </h1>
             <p className="text-xl text-muted-foreground">
@@ -74,9 +74,9 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid items-center grid-cols-1 gap-12 md:grid-cols-2">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight mb-6">
+              <h2 className="mb-6 text-3xl font-bold tracking-tight">
                 Our Story
               </h2>
               <div className="space-y-4 text-muted-foreground">
@@ -103,7 +103,7 @@ export default function AboutPage() {
             </div>
             <div className="relative h-[400px] rounded-2xl overflow-hidden">
               <Image
-                src="/placeholder.svg?height=800&width=1200"
+                src="/teamwork.jpg"
                 alt="Trial Verse team collaboration"
                 fill
                 className="object-cover"
@@ -115,29 +115,29 @@ export default function AboutPage() {
 
       {/* Meet Our Founders Section - Alternating Layout */}
       <section className="py-16 md:py-24 bg-muted/30">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">
+        <div className="container px-4 mx-auto md:px-6">
+          <div className="max-w-3xl mx-auto mb-16 text-center">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight">
               Meet Our Founders
             </h2>
-            <p className="text-muted-foreground text-lg">
+            <p className="text-lg text-muted-foreground">
               The visionaries behind Trial Verse who are transforming social
               media with their unique expertise and passion.
             </p>
             <div className="flex justify-center mt-6">
-              <div className="h-1 w-20 bg-primary rounded-full"></div>
+              <div className="w-20 h-1 rounded-full bg-primary"></div>
             </div>
           </div>
 
           {/* Ariel Hutomo - First founder (image on left) */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+          <div className="grid items-center grid-cols-1 gap-12 mb-20 lg:grid-cols-2">
             <div
               className="relative w-full max-w-md mx-auto lg:mx-0"
               style={{ aspectRatio: "3/4" }}
             >
-              <div className="w-full h-full rounded-3xl overflow-hidden shadow-lg border-4 border-primary/20">
+              <div className="w-full h-full overflow-hidden border-4 shadow-lg rounded-3xl border-primary/20">
                 <Image
-                  src="/ariel-hutomo.jpg"
+                  src="/ariel-hutomo2.jpg"
                   alt="Ariel Hutomo"
                   fill
                   className="object-cover rounded-lg"
@@ -146,14 +146,14 @@ export default function AboutPage() {
             </div>
             <div className="space-y-6">
               <div>
-                <p className="text-primary font-semibold text-lg mb-2">
+                <p className="mb-2 text-lg font-semibold text-primary">
                   Co-Founder & Data Scientist
                 </p>
-                <h3 className="text-4xl md:text-5xl font-bold text-foreground">
+                <h3 className="text-4xl font-bold md:text-5xl text-foreground">
                   Ariel Hutomo
                 </h3>
               </div>
-              <p className="text-muted-foreground text-lg leading-relaxed">
+              <p className="text-lg leading-relaxed text-muted-foreground">
                 I&#39;m an intermediate Data Scientist and a 17-year-old student
                 passionate about leveraging data to create personalized
                 experiences. At Trial Verse, I work on developing algorithms
@@ -161,24 +161,24 @@ export default function AboutPage() {
                 matter to them. My goal is to make social media more meaningful
                 through intelligent data analysis and machine learning.
               </p>
-              <div className="flex space-x-4 pt-4">
+              <div className="flex pt-4 space-x-4">
                 <AnimatedTooltip items={socialLinksAriel} />
               </div>
             </div>
           </div>
 
           {/* Triputra Harza - Second founder (image on right) */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 order-2 lg:order-1">
+          <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
+            <div className="order-2 space-y-6 lg:order-1">
               <div>
-                <p className="text-primary font-semibold text-lg mb-2">
+                <p className="mb-2 text-lg font-semibold text-primary">
                   Co-Founder & Fullstack Developer
                 </p>
-                <h3 className="text-4xl md:text-5xl font-bold text-foreground">
+                <h3 className="text-4xl font-bold md:text-5xl text-foreground">
                   Triputra Harza
                 </h3>
               </div>
-              <p className="text-muted-foreground text-lg leading-relaxed">
+              <p className="text-lg leading-relaxed text-muted-foreground">
                 I&#39;m an intermediate Fullstack Developer and a 17-year-old
                 student with a passion for creating seamless digital
                 experiences. At Trial Verse, I lead the development of our
@@ -186,17 +186,17 @@ export default function AboutPage() {
                 I believe in building technology that brings people together in
                 meaningful ways.
               </p>
-              <div className="flex space-x-4 pt-4">
+              <div className="flex pt-4 space-x-4">
                 <AnimatedTooltip items={socialLinksTriputra} />
               </div>
             </div>
             <div
-              className="relative w-full max-w-md mx-auto lg:mx-0 lg:ml-auto order-1 lg:order-2"
+              className="relative order-1 w-full max-w-md mx-auto lg:mx-0 lg:ml-auto lg:order-2"
               style={{ aspectRatio: "3/4" }}
             >
-              <div className="w-full h-full rounded-3xl overflow-hidden shadow-lg border-4 border-primary/20">
+              <div className="w-full h-full overflow-hidden border-4 shadow-lg rounded-3xl border-primary/20">
                 <Image
-                  src="/placeholder.svg"
+                  src="/triputra2.jpg"
                   alt="Triputra Harza"
                   fill
                   className="object-cover rounded-lg"
@@ -207,7 +207,7 @@ export default function AboutPage() {
 
           {/* Bottom divider */}
           <div className="flex justify-center mt-20">
-            <div className="h-1 w-32 bg-primary/30 rounded-full"></div>
+            <div className="w-32 h-1 rounded-full bg-primary/30"></div>
           </div>
         </div>
       </section>

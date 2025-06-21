@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { Facebook, Instagram, Twitter, Linkedin, Youtube } from "lucide-react";
+import { Facebook, Instagram, Twitter, Linkedin, Github } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-muted py-12">
+    <footer className="py-12 bg-muted">
       <div className="px-4 md:px-6">
-        <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+        <div className="grid max-w-screen-xl grid-cols-1 gap-8 mx-auto text-left md:grid-cols-3">
           <div className="space-y-4">
             <Link href="/" className="inline-block">
               <span className="text-2xl font-bold text-primary">
@@ -17,44 +17,44 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <Link
-                href="#"
+                href="https://web.facebook.com/triputra.harza"
                 className="text-muted-foreground hover:text-primary"
                 aria-label="Facebook"
               >
-                <Facebook className="h-5 w-5" />
+                <Facebook className="w-5 h-5" />
               </Link>
               <Link
-                href="#"
+                href="https://www.instagram.com/triputraharza"
                 className="text-muted-foreground hover:text-primary"
                 aria-label="Instagram"
               >
-                <Instagram className="h-5 w-5" />
+                <Instagram className="w-5 h-5" />
               </Link>
               <Link
-                href="#"
+                href="https://x.com/triputraharza"
                 className="text-muted-foreground hover:text-primary"
                 aria-label="Twitter"
               >
-                <Twitter className="h-5 w-5" />
+                <Twitter className="w-5 h-5" />
               </Link>
               <Link
-                href="#"
+                href="https://www.linkedin.com/in/triputra-harza-038b66334/"
                 className="text-muted-foreground hover:text-primary"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="h-5 w-5" />
+                <Linkedin className="w-5 h-5" />
               </Link>
               <Link
-                href="#"
+                href="https://github.com/THRG1170"
                 className="text-muted-foreground hover:text-primary"
                 aria-label="YouTube"
               >
-                <Youtube className="h-5 w-5" />
+                <Github className="w-5 h-5" />
               </Link>
             </div>
           </div>
           <div>
-            <h3 className="text-lg font-medium mb-4">Quick Links</h3>
+            <h3 className="mb-4 text-lg font-medium">Quick Links</h3>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -91,11 +91,11 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-medium mb-4">Legal</h3>
+            <h3 className="mb-4 text-lg font-medium">Legal</h3>
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="#"
+                  href="/terms"
                   className="text-muted-foreground hover:text-primary"
                 >
                   Terms of Service
@@ -103,7 +103,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/privacy"
                   className="text-muted-foreground hover:text-primary"
                 >
                   Privacy Policy
@@ -128,7 +128,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-12 pt-8 border-t border-border">
+        <div className="pt-8 mt-12 border-t border-border">
           <p className="text-center text-muted-foreground">
             &copy; {new Date().getFullYear()} Trial Verse. All rights reserved.
           </p>

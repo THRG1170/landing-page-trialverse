@@ -20,7 +20,7 @@ export function Founders({ showHeading = true }: { showHeading?: boolean }) {
     {
       name: "Triputra Harza",
       role: "Co-Founder & Fullstack Developer",
-      image: "/placeholder.svg",
+      image: "/triputra.jpg",
     },
   ];
 
@@ -109,7 +109,7 @@ export function Founders({ showHeading = true }: { showHeading?: boolean }) {
                   <p className="text-primary font-medium mb-4">
                     {founder.role}
                   </p>
-                  <div className="aspect-square relative">
+                  <div className="aspect-[3/4] relative">
                     <Image
                       src={founder.image || "/placeholder.svg"}
                       alt={founder.name}
